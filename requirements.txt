@@ -1,0 +1,25 @@
+# Quantum Avatar - Python Dependencies
+# Minimale Abhängigkeiten für maximale Autonomie
+
+# Core Python (Built-in)
+asyncio>=3.4.3
+time
+datetime
+random
+sys
+os
+
+# Optional für erweiterte Features
+# requests>=2.31.0
+# aiohttp>=3.8.0
+# numpy>=1.24.0
+# pandas>=2.0.0
+
+# Quantum Computing (Future)
+# qiskit>=0.45.0
+# cirq>=1.2.0
+
+# AI/ML Integration (Future)  
+# openai>=1.0.0
+# anthropic>=0.7.0
+# google-cloud-aiplatform>=1.38.0
