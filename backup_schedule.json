@@ -1,0 +1,28 @@
+{
+  "daily_backup": {
+    "enabled": true,
+    "time": "02:00",
+    "type": "full",
+    "retention_days": 30
+  },
+  "weekly_backup": {
+    "enabled": true,
+    "day": "sunday",
+    "time": "03:00",
+    "type": "full",
+    "retention_days": 90
+  },
+  "monthly_backup": {
+    "enabled": true,
+    "day": 1,
+    "time": "04:00",
+    "type": "full",
+    "retention_days": 365
+  },
+  "critical_backup": {
+    "enabled": true,
+    "trigger": "system_changes",
+    "type": "incremental",
+    "retention_days": 7
+  }
+}

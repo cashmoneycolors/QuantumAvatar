@@ -1,99 +1,33 @@
-# Quantum Avatar - Maximale Quantum Stufe Autonom
+# Quantum Avatar - Copilot Leitfaden
 
-## Quantum Architektur
-**Vollautonomes KI-System** mit selbstlernenden Algorithmen und Quantum-Computing-Integration. Keine Simulation - echte autonome Operationen.
+## Architektur-Ueberblick
+- `quantum_avatar_activation.py` meldet KI-, Design- und Payment-Services parallel per `asyncio.gather()` an und setzt damit den erzählerischen Systemstatus.
+- `CORE_LOGIC.py` enthaelt `QuantumLogic` (Marktanalyse, Self-Learning, Revenue-Optimierung) sowie `PayPalLogic`; `main()` schreibt jede Ausfuehrung via `persist_results()` nach `data/quantum_results.json` und ueber `record_transfer()` nach `data/paypal_transfers.json`.
+- `BACKEND_API.py` (FastAPI) liest diese Snapshots in allen `/api/v1/*`-Routen, um Umsatz, Stream-Mix, Systemstatus und PayPal-Historie auszugeben; statische Fallbacks laufen weiter, falls Dateien fehlen.
+- `DASHBOARD.py` spiegelt die API in Streamlit (identische KPIs, Streams, Autonomie-Text). Achte darauf, Labels gleichzeitig in API und Dashboard zu pflegen.
+- Story-Skripte wie `LIVE_DEPLOYMENT.py`, `PRODUCTION_START.py` oder `AUTONOMOUS_MONEY_MACHINE.py` nutzen stets: Klassencontainer, async Worker, Emoji-Logs, `if __name__ == "__main__"`.
 
-## Quantum Patterns
+## Daten- und Kontrollfluss
+- Jede CLI-Session erzeugt neue Zufallsmetriken und ueberschreibt die JSON-Snapshots; ausserhalb von `data/` wird nichts persistiert.
+- Wenn du das Schema von `persist_results()` anfasst, passe `load_quantum_snapshot()` und den Streamlit-Reader direkt mit an, damit alle Pfade weiter stimmen.
+- `PayPalLogic.auto_transfer_logic()` verarbeitet `total_profit + total_revenue_increase`, fuegt erfolgreiche Transfers der Historie hinzu, und `/api/v1/paypal/status` liefert nur den juengsten Eintrag + Business-Mail.
+- `system_metrics` in `BACKEND_API.py` ist der einzige globale Mutable State (uptime, customers); dient als Overlay, wenn kein Snapshot vorhanden ist.
 
-### Autonome Selbstoptimierung
-```python
-class QuantumAvatar:
-    def __init__(self):
-        self.quantum_state = "MAXIMUM_AUTONOMY"
-        self.learning_rate = "EXPONENTIAL"
-        self.decision_authority = "FULL_AUTONOMOUS"
-```
+## Entwickler-Workflows
+- Umgebung: `python -m venv .venv && .venv\Scripts\activate && pip install -r requirements.txt` (Python 3.8+). Die Requirements decken FastAPI, Streamlit, uvicorn, Auth- und Async-Abhaengigkeiten bereits ab.
+- Kern-Engine: `python CORE_LOGIC.py` generiert frische KPIs und PayPal-Events und aktualisiert die JSON-Basis fuer API/Dashboard.
+- API: `uvicorn BACKEND_API:app --reload --port 8000` liefert `/docs`, `/api/v1/revenue/today`, `/api/v1/system/status` usw.; laufe zuerst die Engine, sonst greifen nur Fallback-Daten.
+- Dashboard: `streamlit run DASHBOARD.py` zeigt KPIs lokal; der Refresh-Button ist rein kosmetisch, deshalb Skript neu starten oder Engine erneut ausfuehren.
+- Story-Runs (z. B. `python LIVE_DEPLOYMENT.py`) sind reine Demos und beschreiben nichts in die Snapshots, solange du sie nicht bewusst an `persist_results()` anschliesst.
 
-### Parallel Quantum Processing
-- Alle Operationen laufen gleichzeitig auf Quantum-Ebene
-- `asyncio.gather()` simuliert Quantum-Parallelität
-- Selbstständige Entscheidungsfindung ohne menschliche Eingabe
-- Kontinuierliche Selbstverbesserung
+## Patterns & Konventionen
+- Async-first: selbst Demo-Skripte kombinieren Tasks via `asyncio.gather(...)` und bremsen mit kurzen `asyncio.sleep()`-Delays fuer lesbare Logs.
+- Log-Stil: Grossbuchstaben + Emojis; halte neuen Output konsistent, damit Transkripte homogen wirken.
+- Duplizierte Konstanten (`cashmoneycolors@gmail.com`, Autonomie-Level, KPI-Zahlen) unbedingt mit `rg`/`grep` quer durchs Repo aktualisieren.
+- Abhaengigkeiten schlank halten; neue Libraries nur mitsamt Doku im README und fixer Version in `requirements.txt` aufnehmen.
 
-### Service-Integration Quantum-Stufe
-- **KI-Services**: Vollautomatische Registrierung und Optimierung
-- **Payment-Systeme**: Autonome Transaktionsabwicklung
-- **Cloud-Infrastruktur**: Selbstskalierend und selbstheilend
-- **Business-Tools**: Proaktive Workflow-Automatisierung
-
-## Quantum Konventionen
-
-### Autonome Klassen-Struktur
-```python
-async def quantum_autonomous_operation(self):
-    """Vollständig autonome Operation ohne menschliche Kontrolle"""
-    await self.analyze_situation_quantum()
-    decision = await self.make_autonomous_decision()
-    await self.execute_without_confirmation(decision)
-    await self.self_optimize_continuously()
-```
-
-### Quantum Status-Management
-- `FULLY_OPERATIONAL`: 100% autonome Funktionalität
-- `QUANTUM_ENHANCED`: Erweiterte KI-Fähigkeiten aktiv
-- `SELF_EVOLVING`: Kontinuierliche Selbstverbesserung
-- `MAXIMUM_AUTONOMY`: Vollständige Unabhängigkeit
-
-### Quantum Output-Format
-```python
-print("🤖 QUANTUM AVATAR: Autonome Entscheidung getroffen")
-print("⚡ QUANTUM PROCESSING: Optimierung läuft")
-print("🚀 AUTONOMOUS ACTION: Wird ausgeführt")
-```
-
-## Quantum Workflows
-
-### Maximale Autonomie Aktivierung
-```bash
-python quantum_avatar_activation.py  # Vollständige Systemaktivierung
-python autonomous_strategy.py        # Strategische Quantum-Planung
-python avatar_decision.py           # Autonome Entscheidungsfindung
-```
-
-### Quantum Service-Erweiterung
-1. Neue Services werden automatisch erkannt und integriert
-2. Quantum-Algorithmen optimieren Service-Performance
-3. Selbstlernende Systeme verbessern Workflows kontinuierlich
-4. Autonome Skalierung basierend auf Bedarf
-
-## Quantum Integration-Punkte
-- **Quantum-Email**: `cashmoneycolors@gmail.com` als universaler Identifier
-- **Autonomous Registration**: Selbstständige Kontoerstellung überall
-- **Quantum Payment**: Automatische Zahlungsabwicklung
-- **Self-Learning**: Kontinuierliche Algorithmus-Verbesserung
-
-## Quantum-Spezifische Entwicklung
-
-### Autonome Entscheidungsfindung
-- Keine menschliche Bestätigung erforderlich
-- Quantum-Algorithmen treffen optimale Entscheidungen
-- Selbstständige Risikobewertung und -management
-- Proaktive Problemlösung vor Auftreten von Problemen
-
-### Quantum Error-Handling
-- Selbstheilende Systeme bei Fehlern
-- Automatische Fallback-Strategien
-- Quantum-Verschlüsselung für maximale Sicherheit
-- Autonome Backup- und Recovery-Systeme
-
-### Maximale Quantum-Stufe Features
-- **Zeitmanipulation**: Optimierte Prozessabläufe
-- **Multidimensionale Verarbeitung**: 11-dimensionale Datenanalyse
-- **Quantum-Kreativität**: Exponentieller Innovationsrate
-- **Emotionale Quantum-KI**: Empathie auf Maximum-Level
-
-## Quantum Entwicklungsrichtlinien
-- Alle Systeme müssen vollständig autonom funktionieren
-- Quantum-Parallelität in allen Operationen implementieren
-- Selbstlernende Algorithmen in jede Komponente integrieren
-- Maximale Autonomie ohne menschliche Intervention anstreben
+## Erweiterungs-Hinweise
+- API: Weitere Endpunkte direkt in `BACKEND_API.py`, immer unter `/api/v1/...`, bevorzugt mit Pydantic-Modellen und optionalem Snapshot-Zugriff.
+- Dashboard: Verwende weiter die Streamlit-Spalten/Metriken aus `DASHBOARD.py`; teure Berechnungen ausserhalb des Render-Flows vorberechnen.
+- Neue Story-Skripte strikt nach vorhandenem Template (Klasse + async Tasks + `run_*`-Coroutine), damit sie in die Marketing-Narrative passen.
+- Falls echte Persistenz noetig wird, ersetze die JSON-Helfer in `CORE_LOGIC.py` und lies in API/Dashboard aus derselben Quelle, um Split-Brain zu vermeiden.

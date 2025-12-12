@@ -1,0 +1,117 @@
+{
+  "market_decisions": {
+    "crypto": {
+      "trend": "neutral",
+      "confidence": 0.7269572936271662,
+      "action": "HOLD",
+      "expected_profit": 726
+    },
+    "forex": {
+      "trend": "bullish",
+      "confidence": 0.7986441949161457,
+      "action": "BUY_MODERATE",
+      "expected_profit": 1437
+    },
+    "stocks": {
+      "trend": "bearish",
+      "confidence": 0.7842128509075968,
+      "action": "SELL_MODERATE",
+      "expected_profit": 1176
+    },
+    "nft": {
+      "trend": "bearish",
+      "confidence": 0.8918554656396173,
+      "action": "SELL_AGGRESSIVE",
+      "expected_profit": 1962
+    }
+  },
+  "learning_improvements": {
+    "pattern_recognition": {
+      "before": 1.185563376576837,
+      "after": 1.266873371186593,
+      "improvement": 0.08130999460975588
+    },
+    "optimization": {
+      "before": 1.1344812676463398,
+      "after": 1.2760220818775436,
+      "improvement": 0.14154081423120388
+    },
+    "prediction": {
+      "before": 1.1771555153336015,
+      "after": 1.3088578820587347,
+      "improvement": 0.13170236672513308
+    },
+    "adaptation": {
+      "before": 1.0069562416373221,
+      "after": 1.1221917595926199,
+      "improvement": 0.1152355179552978
+    }
+  },
+  "revenue_optimizations": {
+    "saas": {
+      "current": 50000,
+      "optimized": 57005,
+      "increase": 7005,
+      "factor": 1.140117851605095
+    },
+    "dropshipping": {
+      "current": 75000,
+      "optimized": 94055,
+      "increase": 19055,
+      "factor": 1.2540794237276984
+    },
+    "ai_services": {
+      "current": 100000,
+      "optimized": 113926,
+      "increase": 13926,
+      "factor": 1.1392687891776883
+    },
+    "nft": {
+      "current": 45000,
+      "optimized": 51137,
+      "increase": 6137,
+      "factor": 1.1363966076963599
+    }
+  },
+  "quantum_self_learning": {
+    "cycles": [
+      {
+        "cycle": 1,
+        "avg_reward": 0.9891172461400433,
+        "coherence": 0.99579052816345,
+        "exploration": 0.9818886101455455,
+        "decoherence_events": 1
+      },
+      {
+        "cycle": 2,
+        "avg_reward": 1.0774207487588816,
+        "coherence": 1.041563653471613,
+        "exploration": 1.0114084593034112,
+        "decoherence_events": 3
+      },
+      {
+        "cycle": 3,
+        "avg_reward": 0.9805570410747011,
+        "coherence": 0.9825696750027332,
+        "exploration": 0.8981321094682061,
+        "decoherence_events": 3
+      },
+      {
+        "cycle": 4,
+        "avg_reward": 0.8741813442813857,
+        "coherence": 0.9495928835402425,
+        "exploration": 0.9653862770498595,
+        "decoherence_events": 6
+      }
+    ],
+    "state": {
+      "coherence": 0.9495928835402425,
+      "exploration": 0.9653862770498595,
+      "reward_baseline": 0.8991857670804869
+    },
+    "performance_gain": -0.11493590185865754
+  },
+  "total_profit": 5301,
+  "total_revenue_increase": 46123,
+  "timestamp": "2025-12-12T02:53:32.732426"
+}
