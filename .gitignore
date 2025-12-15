@@ -43,12 +43,16 @@ desktop.ini
 *.log
 logs/
 
+# Backups (local only, not pushed to GitHub)
+backups/
+data/backups/
+
 # Local databases / generated state
 *.db
 *.sqlite
 *.sqlite3
 
-# Quantum Secrets (Future)
+# Quantum Secrets
 quantum_keys/
 api_secrets/
 .env
