@@ -76,20 +76,29 @@ class AIManager:
 
             # Dynamic import and registration based on type
             if agent_type == 'grok':
-                from ai.grok_ai import GrokAI
+                from .grok_ai import GrokAI
                 agent_class = GrokAI
             elif agent_type == 'claude':
                 try:
                     from anthropic import Anthropic
-                    from ai.claude_ai import ClaudeAI
+                    from .claude_ai import ClaudeAI
                     agent_class = ClaudeAI
                 except ImportError:
                     logging.warning("Claude not available, using fallback")
-                    from ai.base_ai import BaseAI
+                    from .base_ai import BaseAI
                     agent_class = BaseAI
+            elif agent_type == 'deepseek':
+                from .deepseek_ai import DeepSeekAI
+                agent_class = DeepSeekAI
+            elif agent_type == 'amazon_q':
+                from .amazon_q_ai import AmazonQAI
+                agent_class = AmazonQAI
+            elif agent_type == 'blackbox':
+                from .base_ai import BaseAI  # Placeholder for BlackBox
+                agent_class = BaseAI
             else:
                 logging.warning(f"Unknown agent type: {agent_type}, using base")
-                from ai.base_ai import BaseAI
+                from .base_ai import BaseAI
                 agent_class = BaseAI
 
             # Register the agent
