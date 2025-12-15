@@ -1,0 +1,33 @@
+{
+  "integration_summary": {
+    "total_components": 7,
+    "passed_components": 4,
+    "failed_components": 3,
+    "success_rate": 57.14285714285714,
+    "integration_duration": 2.938135,
+    "timestamp": "2025-12-14T12:51:51.396954"
+  },
+  "component_results": {
+    "Quantum Activation": {
+      "status": "PASSED"
+    },
+    "Core Logic": {
+      "status": "FAILED"
+    },
+    "Money Systems": {
+      "status": "FAILED"
+    },
+    "Quantum Maximum": {
+      "status": "FAILED"
+    },
+    "Test Suites": {
+      "status": "PASSED"
+    },
+    "Backend API": {
+      "status": "PASSED"
+    },
+    "System Architecture": {
+      "status": "PASSED"
+    }
+  }
+}

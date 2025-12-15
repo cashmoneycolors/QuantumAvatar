@@ -14,5 +14,21 @@
     "status": "COMPLETED",
     "transaction_id": "TXN_308590",
     "timestamp": "2025-12-12T02:53:32.733427"
+  },
+  {
+    "amount": 115174,
+    "currency": "EUR",
+    "recipient": "cashmoneycolors@gmail.com",
+    "status": "COMPLETED",
+    "transaction_id": "TXN_213074",
+    "timestamp": "2025-12-14T06:01:24.621864"
+  },
+  {
+    "amount": 72316,
+    "currency": "EUR",
+    "recipient": "cashmoneycolors@gmail.com",
+    "status": "COMPLETED",
+    "transaction_id": "TXN_381856",
+    "timestamp": "2025-12-14T12:51:19.699393"
   }
 ]

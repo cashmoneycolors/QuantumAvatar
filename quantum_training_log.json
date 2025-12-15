@@ -1,0 +1,910 @@
+{
+  "training_summary": {
+    "total_iterations": 100,
+    "best_coherence": 1.9952045438299633,
+    "average_performance": 1.0567617614849454,
+    "target_achieved": false
+  },
+  "performance_history": [
+    {
+      "iteration": 1,
+      "coherence": 1.7009607811532172,
+      "memory_efficiency": 94.73282405348189,
+      "learning_loops": 43,
+      "performance_score": 1.2225827846217325,
+      "total_profit": 6341,
+      "timestamp": "2025-12-14T12:51:31.225989"
+    },
+    {
+      "iteration": 2,
+      "coherence": 1.820329735275692,
+      "memory_efficiency": 94.75635162789642,
+      "learning_loops": 11,
+      "performance_score": 1.078400948993966,
+      "total_profit": 4870,
+      "timestamp": "2025-12-14T12:51:31.332977"
+    },
+    {
+      "iteration": 3,
+      "coherence": 1.6144752065971488,
+      "memory_efficiency": 98.29143052128515,
+      "learning_loops": 16,
+      "performance_score": 1.036664374202715,
+      "total_profit": 4554,
+      "timestamp": "2025-12-14T12:51:31.438541"
+    },
+    {
+      "iteration": 4,
+      "coherence": 1.4686796434817362,
+      "memory_efficiency": 93.47087457539985,
+      "learning_loops": 20,
+      "performance_score": 0.9878844811188939,
+      "total_profit": 4656,
+      "timestamp": "2025-12-14T12:51:31.546488"
+    },
+    {
+      "iteration": 5,
+      "coherence": 1.5329057976057465,
+      "memory_efficiency": 88.63249403513785,
+      "learning_loops": 45,
+      "performance_score": 1.1490598011477122,
+      "total_profit": 5127,
+      "timestamp": "2025-12-14T12:51:31.654578"
+    },
+    {
+      "iteration": 6,
+      "coherence": 1.4453435752057793,
+      "memory_efficiency": 93.529948142566,
+      "learning_loops": 50,
+      "performance_score": 1.1587272745100097,
+      "total_profit": 6738,
+      "timestamp": "2025-12-14T12:51:31.762530"
+    },
+    {
+      "iteration": 7,
+      "coherence": 1.5494123450170019,
+      "memory_efficiency": 98.57722551137478,
+      "learning_loops": 24,
+      "performance_score": 1.059496614540925,
+      "total_profit": 5157,
+      "timestamp": "2025-12-14T12:51:31.868137"
+    },
+    {
+      "iteration": 8,
+      "coherence": 1.0592500586670268,
+      "memory_efficiency": 90.67068818823546,
+      "learning_loops": 18,
+      "performance_score": 0.8037120880315171,
+      "total_profit": 7456,
+      "timestamp": "2025-12-14T12:51:31.976074"
+    },
+    {
+      "iteration": 9,
+      "coherence": 1.6229807311939277,
+      "memory_efficiency": 97.21104475302928,
+      "learning_loops": 37,
+      "performance_score": 1.162825426736659,
+      "total_profit": 5619,
+      "timestamp": "2025-12-14T12:51:32.084391"
+    },
+    {
+      "iteration": 10,
+      "coherence": 1.1515275468494799,
+      "memory_efficiency": 91.17563082131801,
+      "learning_loops": 28,
+      "performance_score": 0.9021379112037461,
+      "total_profit": 6030,
+      "timestamp": "2025-12-14T12:51:32.191588"
+    },
+    {
+      "iteration": 11,
+      "coherence": 1.7755435117989873,
+      "memory_efficiency": 87.34353577163102,
+      "learning_loops": 20,
+      "performance_score": 1.092248012034488,
+      "total_profit": 3975,
+      "timestamp": "2025-12-14T12:51:32.299299"
+    },
+    {
+      "iteration": 12,
+      "coherence": 1.4637296844063412,
+      "memory_efficiency": 89.75957818611614,
+      "learning_loops": 48,
+      "performance_score": 1.1427706083208848,
+      "total_profit": 6703,
+      "timestamp": "2025-12-14T12:51:32.405748"
+    },
+    {
+      "iteration": 13,
+      "coherence": 1.3245640390467677,
+      "memory_efficiency": 88.2424697935802,
+      "learning_loops": 45,
+      "performance_score": 1.0645530249994477,
+      "total_profit": 5018,
+      "timestamp": "2025-12-14T12:51:32.513179"
+    },
+    {
+      "iteration": 14,
+      "coherence": 1.0149224274802786,
+      "memory_efficiency": 89.16001563680618,
+      "learning_loops": 10,
+      "performance_score": 0.7334490179025301,
+      "total_profit": 6047,
+      "timestamp": "2025-12-14T12:51:32.621229"
+    },
+    {
+      "iteration": 15,
+      "coherence": 1.5328795677048654,
+      "memory_efficiency": 91.16878152552037,
+      "learning_loops": 28,
+      "performance_score": 1.0546581716585073,
+      "total_profit": 7493,
+      "timestamp": "2025-12-14T12:51:32.728870"
+    },
+    {
+      "iteration": 16,
+      "coherence": 1.7129839640448972,
+      "memory_efficiency": 93.600245711262,
+      "learning_loops": 50,
+      "performance_score": 1.265994322751745,
+      "total_profit": 5870,
+      "timestamp": "2025-12-14T12:51:32.837283"
+    },
+    {
+      "iteration": 17,
+      "coherence": 1.5545364849361207,
+      "memory_efficiency": 94.17732113810165,
+      "learning_loops": 41,
+      "performance_score": 1.1503465573887532,
+      "total_profit": 4538,
+      "timestamp": "2025-12-14T12:51:32.944422"
+    },
+    {
+      "iteration": 18,
+      "coherence": 1.0420653924117658,
+      "memory_efficiency": 95.26190409908321,
+      "learning_loops": 48,
+      "performance_score": 0.9906118692619559,
+      "total_profit": 5909,
+      "timestamp": "2025-12-14T12:51:33.052025"
+    },
+    {
+      "iteration": 19,
+      "coherence": 1.4199407815282554,
+      "memory_efficiency": 97.22807181349984,
+      "learning_loops": 29,
+      "performance_score": 1.0336605280518016,
+      "total_profit": 5305,
+      "timestamp": "2025-12-14T12:51:33.158117"
+    },
+    {
+      "iteration": 20,
+      "coherence": 1.140574823260811,
+      "memory_efficiency": 85.99768666641168,
+      "learning_loops": 23,
+      "performance_score": 0.8522229893035594,
+      "total_profit": 6006,
+      "timestamp": "2025-12-14T12:51:33.264851"
+    },
+    {
+      "iteration": 21,
+      "coherence": 1.8602367171318197,
+      "memory_efficiency": 87.52144498476883,
+      "learning_loops": 20,
+      "performance_score": 1.1266590218070345,
+      "total_profit": 4935,
+      "timestamp": "2025-12-14T12:51:33.371266"
+    },
+    {
+      "iteration": 22,
+      "coherence": 1.2566020792719845,
+      "memory_efficiency": 94.99504817267508,
+      "learning_loops": 49,
+      "performance_score": 1.081625976226819,
+      "total_profit": 6849,
+      "timestamp": "2025-12-14T12:51:33.478813"
+    },
+    {
+      "iteration": 23,
+      "coherence": 1.5401407635327793,
+      "memory_efficiency": 88.54117280437009,
+      "learning_loops": 22,
+      "performance_score": 1.0136798238262221,
+      "total_profit": 5006,
+      "timestamp": "2025-12-14T12:51:33.585111"
+    },
+    {
+      "iteration": 24,
+      "coherence": 1.4658602822542446,
+      "memory_efficiency": 85.44933631219314,
+      "learning_loops": 15,
+      "performance_score": 0.9326921218382772,
+      "total_profit": 4855,
+      "timestamp": "2025-12-14T12:51:33.692230"
+    },
+    {
+      "iteration": 25,
+      "coherence": 1.4830020532091865,
+      "memory_efficiency": 94.06123181358474,
+      "learning_loops": 40,
+      "performance_score": 1.115384516724429,
+      "total_profit": 5005,
+      "timestamp": "2025-12-14T12:51:33.799534"
+    },
+    {
+      "iteration": 26,
+      "coherence": 1.3547644410725446,
+      "memory_efficiency": 92.1312114616794,
+      "learning_loops": 32,
+      "performance_score": 1.010299410814056,
+      "total_profit": 6656,
+      "timestamp": "2025-12-14T12:51:33.907674"
+    },
+    {
+      "iteration": 27,
+      "coherence": 1.501639045851951,
+      "memory_efficiency": 88.53775364177154,
+      "learning_loops": 31,
+      "performance_score": 1.052268879266095,
+      "total_profit": 5073,
+      "timestamp": "2025-12-14T12:51:34.016170"
+    },
+    {
+      "iteration": 28,
+      "coherence": 1.8902312607977754,
+      "memory_efficiency": 93.59115437262373,
+      "learning_loops": 30,
+      "performance_score": 1.2168659674369813,
+      "total_profit": 6362,
+      "timestamp": "2025-12-14T12:51:34.123026"
+    },
+    {
+      "iteration": 29,
+      "coherence": 1.8563707818125437,
+      "memory_efficiency": 97.36379678240392,
+      "learning_loops": 12,
+      "performance_score": 1.1066397030722293,
+      "total_profit": 5992,
+      "timestamp": "2025-12-14T12:51:34.228758"
+    },
+    {
+      "iteration": 30,
+      "coherence": 1.8956587470005644,
+      "memory_efficiency": 86.76135625326748,
+      "learning_loops": 21,
+      "performance_score": 1.144547567560028,
+      "total_profit": 6332,
+      "timestamp": "2025-12-14T12:51:34.336870"
+    },
+    {
+      "iteration": 31,
+      "coherence": 1.1648776601303918,
+      "memory_efficiency": 99.78299070207338,
+      "learning_loops": 30,
+      "performance_score": 0.9453000361583768,
+      "total_profit": 5288,
+      "timestamp": "2025-12-14T12:51:34.443915"
+    },
+    {
+      "iteration": 32,
+      "coherence": 1.739413273157286,
+      "memory_efficiency": 93.79110908817322,
+      "learning_loops": 35,
+      "performance_score": 1.1871386365274341,
+      "total_profit": 3346,
+      "timestamp": "2025-12-14T12:51:34.551124"
+    },
+    {
+      "iteration": 33,
+      "coherence": 1.2158058871938642,
+      "memory_efficiency": 97.72066476485179,
+      "learning_loops": 31,
+      "performance_score": 0.965484349172101,
+      "total_profit": 5566,
+      "timestamp": "2025-12-14T12:51:34.658541"
+    },
+    {
+      "iteration": 34,
+      "coherence": 1.2537826435163164,
+      "memory_efficiency": 95.46367721939906,
+      "learning_loops": 28,
+      "performance_score": 0.9559040890647238,
+      "total_profit": 6910,
+      "timestamp": "2025-12-14T12:51:34.765754"
+    },
+    {
+      "iteration": 35,
+      "coherence": 1.6751348702247275,
+      "memory_efficiency": 91.14825990077351,
+      "learning_loops": 29,
+      "performance_score": 1.1174987277922115,
+      "total_profit": 5244,
+      "timestamp": "2025-12-14T12:51:34.872672"
+    },
+    {
+      "iteration": 36,
+      "coherence": 1.3000196168033482,
+      "memory_efficiency": 90.39967579322206,
+      "learning_loops": 33,
+      "performance_score": 0.9892068741010054,
+      "total_profit": 6210,
+      "timestamp": "2025-12-14T12:51:34.980505"
+    },
+    {
+      "iteration": 37,
+      "coherence": 1.9952045438299633,
+      "memory_efficiency": 85.88686803461827,
+      "learning_loops": 14,
+      "performance_score": 1.1397424216358403,
+      "total_profit": 5279,
+      "timestamp": "2025-12-14T12:51:35.088430"
+    },
+    {
+      "iteration": 38,
+      "coherence": 1.2167166385355253,
+      "memory_efficiency": 90.57919825147104,
+      "learning_loops": 29,
+      "performance_score": 0.9324242501686233,
+      "total_profit": 3291,
+      "timestamp": "2025-12-14T12:51:35.194875"
+    },
+    {
+      "iteration": 39,
+      "coherence": 1.1440975384624839,
+      "memory_efficiency": 86.59308815839694,
+      "learning_loops": 47,
+      "performance_score": 0.9994182798601843,
+      "total_profit": 7490,
+      "timestamp": "2025-12-14T12:51:35.302171"
+    },
+    {
+      "iteration": 40,
+      "coherence": 1.6072623244463653,
+      "memory_efficiency": 98.9546521559693,
+      "learning_loops": 47,
+      "performance_score": 1.2217688862464542,
+      "total_profit": 6264,
+      "timestamp": "2025-12-14T12:51:35.409457"
+    },
+    {
+      "iteration": 41,
+      "coherence": 1.6189606550210658,
+      "memory_efficiency": 88.24057926267146,
+      "learning_loops": 37,
+      "performance_score": 1.1343059997964406,
+      "total_profit": 5296,
+      "timestamp": "2025-12-14T12:51:35.516766"
+    },
+    {
+      "iteration": 42,
+      "coherence": 1.19050804887871,
+      "memory_efficiency": 87.75790445470297,
+      "learning_loops": 22,
+      "performance_score": 0.8714769329155929,
+      "total_profit": 6199,
+      "timestamp": "2025-12-14T12:51:35.624635"
+    },
+    {
+      "iteration": 43,
+      "coherence": 1.53564694514771,
+      "memory_efficiency": 97.00009031323832,
+      "learning_loops": 13,
+      "performance_score": 0.9832590489987989,
+      "total_profit": 6343,
+      "timestamp": "2025-12-14T12:51:35.731432"
+    },
+    {
+      "iteration": 44,
+      "coherence": 1.299581001405384,
+      "memory_efficiency": 93.33628996459676,
+      "learning_loops": 40,
+      "performance_score": 1.0398412704559439,
+      "total_profit": 6328,
+      "timestamp": "2025-12-14T12:51:35.839752"
+    },
+    {
+      "iteration": 45,
+      "coherence": 1.3460897741544573,
+      "memory_efficiency": 98.3822779032093,
+      "learning_loops": 11,
+      "performance_score": 0.8995827433714108,
+      "total_profit": 3910,
+      "timestamp": "2025-12-14T12:51:35.946905"
+    },
+    {
+      "iteration": 46,
+      "coherence": 1.2388887899562173,
+      "memory_efficiency": 85.5347024456892,
+      "learning_loops": 13,
+      "performance_score": 0.8301596233195545,
+      "total_profit": 7591,
+      "timestamp": "2025-12-14T12:51:36.054523"
+    },
+    {
+      "iteration": 47,
+      "coherence": 1.8787582725981335,
+      "memory_efficiency": 90.06062054408548,
+      "learning_loops": 23,
+      "performance_score": 1.15968517067151,
+      "total_profit": 5873,
+      "timestamp": "2025-12-14T12:51:36.161315"
+    },
+    {
+      "iteration": 48,
+      "coherence": 1.0737807543050257,
+      "memory_efficiency": 94.19207456332308,
+      "learning_loops": 41,
+      "performance_score": 0.9580885254119795,
+      "total_profit": 5687,
+      "timestamp": "2025-12-14T12:51:36.268566"
+    },
+    {
+      "iteration": 49,
+      "coherence": 1.992240102049546,
+      "memory_efficiency": 93.777761144552,
+      "learning_loops": 45,
+      "performance_score": 1.3482293242534744,
+      "total_profit": 5439,
+      "timestamp": "2025-12-14T12:51:36.375127"
+    },
+    {
+      "iteration": 50,
+      "coherence": 1.2323252117650458,
+      "memory_efficiency": 95.09071729150688,
+      "learning_loops": 45,
+      "performance_score": 1.048202236580539,
+      "total_profit": 4973,
+      "timestamp": "2025-12-14T12:51:36.482699"
+    },
+    {
+      "iteration": 51,
+      "coherence": 1.2630185394601752,
+      "memory_efficiency": 94.80833854817178,
+      "learning_loops": 11,
+      "performance_score": 0.8556324314285855,
+      "total_profit": 6018,
+      "timestamp": "2025-12-14T12:51:36.590585"
+    },
+    {
+      "iteration": 52,
+      "coherence": 1.4496916084269216,
+      "memory_efficiency": 91.35911013325934,
+      "learning_loops": 32,
+      "performance_score": 1.0459539737705466,
+      "total_profit": 3671,
+      "timestamp": "2025-12-14T12:51:36.698870"
+    },
+    {
+      "iteration": 53,
+      "coherence": 1.4255074989582317,
+      "memory_efficiency": 94.6425716601335,
+      "learning_loops": 35,
+      "performance_score": 1.0641307145636931,
+      "total_profit": 5827,
+      "timestamp": "2025-12-14T12:51:36.806904"
+    },
+    {
+      "iteration": 54,
+      "coherence": 1.7974642815457447,
+      "memory_efficiency": 89.4054882090427,
+      "learning_loops": 48,
+      "performance_score": 1.275202177245426,
+      "total_profit": 5002,
+      "timestamp": "2025-12-14T12:51:36.915102"
+    },
+    {
+      "iteration": 55,
+      "coherence": 1.134956477972847,
+      "memory_efficiency": 87.36657622951728,
+      "learning_loops": 26,
+      "performance_score": 0.8720823198776907,
+      "total_profit": 5482,
+      "timestamp": "2025-12-14T12:51:37.022748"
+    },
+    {
+      "iteration": 56,
+      "coherence": 1.288264909013911,
+      "memory_efficiency": 87.91612622132075,
+      "learning_loops": 39,
+      "performance_score": 1.0130543422695268,
+      "total_profit": 5158,
+      "timestamp": "2025-12-14T12:51:37.130576"
+    },
+    {
+      "iteration": 57,
+      "coherence": 1.4312858018009904,
+      "memory_efficiency": 97.95318888154215,
+      "learning_loops": 10,
+      "performance_score": 0.9263738873650227,
+      "total_profit": 6736,
+      "timestamp": "2025-12-14T12:51:37.237206"
+    },
+    {
+      "iteration": 58,
+      "coherence": 1.8153152810000932,
+      "memory_efficiency": 97.19231121699684,
+      "learning_loops": 38,
+      "performance_score": 1.2457030460510279,
+      "total_profit": 4911,
+      "timestamp": "2025-12-14T12:51:37.343763"
+    },
+    {
+      "iteration": 59,
+      "coherence": 1.179654893605195,
+      "memory_efficiency": 93.00849455506112,
+      "learning_loops": 32,
+      "performance_score": 0.9428874411072612,
+      "total_profit": 5115,
+      "timestamp": "2025-12-14T12:51:37.450662"
+    },
+    {
+      "iteration": 60,
+      "coherence": 1.399502137728673,
+      "memory_efficiency": 94.00441981178335,
+      "learning_loops": 32,
+      "performance_score": 1.0338141145268192,
+      "total_profit": 6629,
+      "timestamp": "2025-12-14T12:51:37.559156"
+    },
+    {
+      "iteration": 61,
+      "coherence": 1.038857883502038,
+      "memory_efficiency": 88.55908408323313,
+      "learning_loops": 27,
+      "performance_score": 0.8432204056505146,
+      "total_profit": 4995,
+      "timestamp": "2025-12-14T12:51:37.666325"
+    },
+    {
+      "iteration": 62,
+      "coherence": 1.8404170238339623,
+      "memory_efficiency": 89.80697367964729,
+      "learning_loops": 49,
+      "performance_score": 1.2995877305725267,
+      "total_profit": 4242,
+      "timestamp": "2025-12-14T12:51:37.774442"
+    },
+    {
+      "iteration": 63,
+      "coherence": 1.733288444611761,
+      "memory_efficiency": 98.2267929014598,
+      "learning_loops": 14,
+      "performance_score": 1.0719957565490839,
+      "total_profit": 5307,
+      "timestamp": "2025-12-14T12:51:37.882012"
+    },
+    {
+      "iteration": 64,
+      "coherence": 1.8454481940634275,
+      "memory_efficiency": 92.19873755605363,
+      "learning_loops": 20,
+      "performance_score": 1.1347754902935319,
+      "total_profit": 6917,
+      "timestamp": "2025-12-14T12:51:37.989362"
+    },
+    {
+      "iteration": 65,
+      "coherence": 1.4127511464972615,
+      "memory_efficiency": 93.98160095321954,
+      "learning_loops": 27,
+      "performance_score": 1.0090452614585632,
+      "total_profit": 3564,
+      "timestamp": "2025-12-14T12:51:38.095544"
+    },
+    {
+      "iteration": 66,
+      "coherence": 1.3995641609407394,
+      "memory_efficiency": 91.1482995356192,
+      "learning_loops": 10,
+      "performance_score": 0.8932705629831534,
+      "total_profit": 5077,
+      "timestamp": "2025-12-14T12:51:38.202623"
+    },
+    {
+      "iteration": 67,
+      "coherence": 1.6361722884401364,
+      "memory_efficiency": 87.02028211873399,
+      "learning_loops": 24,
+      "performance_score": 1.0595297617322563,
+      "total_profit": 5801,
+      "timestamp": "2025-12-14T12:51:38.309943"
+    },
+    {
+      "iteration": 68,
+      "coherence": 1.6961262462623912,
+      "memory_efficiency": 89.52391818110922,
+      "learning_loops": 33,
+      "performance_score": 1.145022253048284,
+      "total_profit": 4531,
+      "timestamp": "2025-12-14T12:51:38.417603"
+    },
+    {
+      "iteration": 69,
+      "coherence": 1.3325523284821332,
+      "memory_efficiency": 90.27768026847255,
+      "learning_loops": 49,
+      "performance_score": 1.097853972198271,
+      "total_profit": 6337,
+      "timestamp": "2025-12-14T12:51:38.525500"
+    },
+    {
+      "iteration": 70,
+      "coherence": 1.8645216646257956,
+      "memory_efficiency": 94.10881854705642,
+      "learning_loops": 40,
+      "performance_score": 1.2681351214914875,
+      "total_profit": 5558,
+      "timestamp": "2025-12-14T12:51:38.633083"
+    },
+    {
+      "iteration": 71,
+      "coherence": 1.8869237585024972,
+      "memory_efficiency": 87.03950289893359,
+      "learning_loops": 20,
+      "performance_score": 1.1358880120977997,
+      "total_profit": 5070,
+      "timestamp": "2025-12-14T12:51:38.740748"
+    },
+    {
+      "iteration": 72,
+      "coherence": 1.5240547747018285,
+      "memory_efficiency": 88.22988437074842,
+      "learning_loops": 48,
+      "performance_score": 1.1623115629929766,
+      "total_profit": 5263,
+      "timestamp": "2025-12-14T12:51:38.847109"
+    },
+    {
+      "iteration": 73,
+      "coherence": 1.211702281142406,
+      "memory_efficiency": 94.77306722046131,
+      "learning_loops": 39,
+      "performance_score": 1.0030001141183464,
+      "total_profit": 6420,
+      "timestamp": "2025-12-14T12:51:38.954990"
+    },
+    {
+      "iteration": 74,
+      "coherence": 1.385282257784271,
+      "memory_efficiency": 99.8965337358082,
+      "learning_loops": 28,
+      "performance_score": 1.021802504321133,
+      "total_profit": 6962,
+      "timestamp": "2025-12-14T12:51:39.063127"
+    },
+    {
+      "iteration": 75,
+      "coherence": 1.3231105708760058,
+      "memory_efficiency": 95.47601409974479,
+      "learning_loops": 44,
+      "performance_score": 1.0796722706496367,
+      "total_profit": 5101,
+      "timestamp": "2025-12-14T12:51:39.170338"
+    },
+    {
+      "iteration": 76,
+      "coherence": 1.2438996550561368,
+      "memory_efficiency": 90.48063480931708,
+      "learning_loops": 40,
+      "performance_score": 1.0090017664504058,
+      "total_profit": 4734,
+      "timestamp": "2025-12-14T12:51:39.277334"
+    },
+    {
+      "iteration": 77,
+      "coherence": 1.612415177661591,
+      "memory_efficiency": 92.73279710550675,
+      "learning_loops": 20,
+      "performance_score": 1.0431644623811567,
+      "total_profit": 5375,
+      "timestamp": "2025-12-14T12:51:39.385185"
+    },
+    {
+      "iteration": 78,
+      "coherence": 1.1769989802397065,
+      "memory_efficiency": 98.98569834557237,
+      "learning_loops": 32,
+      "performance_score": 0.9597566871325998,
+      "total_profit": 6328,
+      "timestamp": "2025-12-14T12:51:39.491563"
+    },
+    {
+      "iteration": 79,
+      "coherence": 1.5152928756071113,
+      "memory_efficiency": 95.63700941594064,
+      "learning_loops": 18,
+      "performance_score": 1.0010281784906667,
+      "total_profit": 5464,
+      "timestamp": "2025-12-14T12:51:39.599423"
+    },
+    {
+      "iteration": 80,
+      "coherence": 1.4298448355690063,
+      "memory_efficiency": 85.85575895631357,
+      "learning_loops": 46,
+      "performance_score": 1.1055052110965433,
+      "total_profit": 6149,
+      "timestamp": "2025-12-14T12:51:39.706033"
+    },
+    {
+      "iteration": 81,
+      "coherence": 1.9928255559988668,
+      "memory_efficiency": 85.82551636936267,
+      "learning_loops": 37,
+      "performance_score": 1.2766067715076348,
+      "total_profit": 5500,
+      "timestamp": "2025-12-14T12:51:39.813830"
+    },
+    {
+      "iteration": 82,
+      "coherence": 1.8527830985243643,
+      "memory_efficiency": 85.1579638433106,
+      "learning_loops": 43,
+      "performance_score": 1.2545871309396774,
+      "total_profit": 5897,
+      "timestamp": "2025-12-14T12:51:39.921763"
+    },
+    {
+      "iteration": 83,
+      "coherence": 1.3439534888889342,
+      "memory_efficiency": 87.07336672397675,
+      "learning_loops": 10,
+      "performance_score": 0.8588014957275039,
+      "total_profit": 7152,
+      "timestamp": "2025-12-14T12:51:40.029653"
+    },
+    {
+      "iteration": 84,
+      "coherence": 1.5541583650734765,
+      "memory_efficiency": 85.75714592194396,
+      "learning_loops": 16,
+      "performance_score": 0.9749347837952225,
+      "total_profit": 3749,
+      "timestamp": "2025-12-14T12:51:40.136601"
+    },
+    {
+      "iteration": 85,
+      "coherence": 1.3154656675667218,
+      "memory_efficiency": 99.64164917604255,
+      "learning_loops": 17,
+      "performance_score": 0.9271112145548163,
+      "total_profit": 5199,
+      "timestamp": "2025-12-14T12:51:40.244304"
+    },
+    {
+      "iteration": 86,
+      "coherence": 1.7264276741427138,
+      "memory_efficiency": 92.6262981388145,
+      "learning_loops": 14,
+      "performance_score": 1.0524499640735292,
+      "total_profit": 8816,
+      "timestamp": "2025-12-14T12:51:40.351329"
+    },
+    {
+      "iteration": 87,
+      "coherence": 1.2781314548475171,
+      "memory_efficiency": 89.77823268509303,
+      "learning_loops": 17,
+      "performance_score": 0.882587279994286,
+      "total_profit": 5064,
+      "timestamp": "2025-12-14T12:51:40.459436"
+    },
+    {
+      "iteration": 88,
+      "coherence": 1.434887307349203,
+      "memory_efficiency": 99.89923371289312,
+      "learning_loops": 47,
+      "performance_score": 1.1556526240783604,
+      "total_profit": 7719,
+      "timestamp": "2025-12-14T12:51:40.566249"
+    },
+    {
+      "iteration": 89,
+      "coherence": 1.1267661743661237,
+      "memory_efficiency": 85.69330180651002,
+      "learning_loops": 43,
+      "performance_score": 0.9657863751659796,
+      "total_profit": 5746,
+      "timestamp": "2025-12-14T12:51:40.674408"
+    },
+    {
+      "iteration": 90,
+      "coherence": 1.848070112541635,
+      "memory_efficiency": 97.7689820733043,
+      "learning_loops": 40,
+      "performance_score": 1.2725349912365669,
+      "total_profit": 5106,
+      "timestamp": "2025-12-14T12:51:40.781859"
+    },
+    {
+      "iteration": 91,
+      "coherence": 1.8510392972301966,
+      "memory_efficiency": 85.8842228695974,
+      "learning_loops": 24,
+      "performance_score": 1.1420683875008708,
+      "total_profit": 4348,
+      "timestamp": "2025-12-14T12:51:40.888630"
+    },
+    {
+      "iteration": 92,
+      "coherence": 1.5570515575609347,
+      "memory_efficiency": 96.45150225256285,
+      "learning_loops": 49,
+      "performance_score": 1.2061751297820624,
+      "total_profit": 4695,
+      "timestamp": "2025-12-14T12:51:40.995871"
+    },
+    {
+      "iteration": 93,
+      "coherence": 1.702074199339189,
+      "memory_efficiency": 97.12416610594181,
+      "learning_loops": 21,
+      "performance_score": 1.098202178053501,
+      "total_profit": 6025,
+      "timestamp": "2025-12-14T12:51:41.103235"
+    },
+    {
+      "iteration": 94,
+      "coherence": 1.976784373690002,
+      "memory_efficiency": 99.36316090825314,
+      "learning_loops": 30,
+      "performance_score": 1.26880323220076,
+      "total_profit": 5650,
+      "timestamp": "2025-12-14T12:51:41.210174"
+    },
+    {
+      "iteration": 95,
+      "coherence": 1.0434231916610495,
+      "memory_efficiency": 86.11715634463845,
+      "learning_loops": 46,
+      "performance_score": 0.9517207456983352,
+      "total_profit": 5698,
+      "timestamp": "2025-12-14T12:51:41.316174"
+    },
+    {
+      "iteration": 96,
+      "coherence": 1.5950925798443518,
+      "memory_efficiency": 94.72701701182797,
+      "learning_loops": 38,
+      "performance_score": 1.1502180829732245,
+      "total_profit": 4279,
+      "timestamp": "2025-12-14T12:51:41.424307"
+    },
+    {
+      "iteration": 97,
+      "coherence": 1.8141583964716377,
+      "memory_efficiency": 97.07072432268998,
+      "learning_loops": 37,
+      "performance_score": 1.238875531556725,
+      "total_profit": 6478,
+      "timestamp": "2025-12-14T12:51:41.530294"
+    },
+    {
+      "iteration": 98,
+      "coherence": 1.212696698908657,
+      "memory_efficiency": 91.011726662489,
+      "learning_loops": 42,
+      "performance_score": 1.0101138595509298,
+      "total_profit": 5132,
+      "timestamp": "2025-12-14T12:51:41.638887"
+    },
+    {
+      "iteration": 99,
+      "coherence": 1.4559789584297458,
+      "memory_efficiency": 90.7167159003933,
+      "learning_loops": 17,
+      "performance_score": 0.9565417310730783,
+      "total_profit": 7124,
+      "timestamp": "2025-12-14T12:51:41.746208"
+    },
+    {
+      "iteration": 100,
+      "coherence": 1.4157688051812605,
+      "memory_efficiency": 92.1027870628377,
+      "learning_loops": 17,
+      "performance_score": 0.9446158832610173,
+      "total_profit": 5534,
+      "timestamp": "2025-12-14T12:51:41.854116"
+    }
+  ]
+}
