@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import argparse
+import csv
 import datetime
 import json
 import os
@@ -147,6 +148,10 @@ def backup_repo(repo_path: Path, out_root: Path, *, make_zip: bool, make_git: bo
                 exclude_dir_names=exclude_dirs,
                 exclude_top_level_names=exclude_top_level,
             )
+            try:
+                result["zip"]["zip_bytes"] = zip_path.stat().st_size
+            except OSError:
+                result["zip"]["zip_bytes"] = None
         except Exception as exc:
             result["errors"].append(f"zip_failed: {exc}")
 
@@ -182,6 +187,15 @@ def backup_repo(repo_path: Path, out_root: Path, *, make_zip: bool, make_git: bo
                     "working_tree_patch": str(diff_path),
                     "index_patch": str(diff_cached_path),
                 }
+                try:
+                    result["git"]["bundle_bytes"] = bundle_path.stat().st_size
+                except OSError:
+                    result["git"]["bundle_bytes"] = None
+                try:
+                    status_lines = status.stdout.splitlines()
+                    result["git"]["status_lines"] = len([ln for ln in status_lines if ln.strip()])
+                except Exception:
+                    result["git"]["status_lines"] = None
         except Exception as exc:
             result["errors"].append(f"git_backup_failed: {exc}")
     elif make_git:
@@ -214,6 +228,45 @@ def create_backup(
     results = []
     for repo_path in selected_repos:
         results.append(backup_repo(repo_path, out_root, make_zip=make_zip, make_git=make_git))
+
+    # Flat repo list
+    repos_txt = out_root / "repos.txt"
+    _write_text(repos_txt, "\n".join([r.get("repo", "") for r in results]) + "\n")
+
+    # CSV report (quick scan for sizes/status)
+    csv_path = out_root / "BACKUP_REPORT.csv"
+    with csv_path.open("w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(
+            f,
+            fieldnames=[
+                "repo",
+                "out",
+                "zip_path",
+                "zip_files",
+                "zip_bytes",
+                "bundle_path",
+                "bundle_bytes",
+                "status_lines",
+                "errors",
+            ],
+        )
+        writer.writeheader()
+        for r in results:
+            zip_info = r.get("zip") or {}
+            git_info = r.get("git") or {}
+            writer.writerow(
+                {
+                    "repo": r.get("repo"),
+                    "out": r.get("out"),
+                    "zip_path": zip_info.get("zip"),
+                    "zip_files": zip_info.get("files"),
+                    "zip_bytes": zip_info.get("zip_bytes"),
+                    "bundle_path": git_info.get("bundle"),
+                    "bundle_bytes": git_info.get("bundle_bytes"),
+                    "status_lines": git_info.get("status_lines"),
+                    "errors": "; ".join(r.get("errors") or []),
+                }
+            )
 
     manifest = {
         "created_at": datetime.datetime.now().isoformat(timespec="seconds"),

@@ -162,3 +162,10 @@ Das ist ein revolutionäres Business-Modell:
 **Du wirst unabhängig und erfolgreich sein!** 🌟🏆
 
 Frage mich, wenn du Hilfe bei irgendeinem Schritt brauchst! 🤖🚀💰
+
+{
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1000,
+  "files.hotExit": "onExitAndWindowClose",
+  "files.restoreUndoStack": true
+}
