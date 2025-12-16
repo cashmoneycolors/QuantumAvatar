@@ -20,7 +20,7 @@ class QuantumTrainer:
 
     async def training_session(self):
         """Single training iteration"""
-        print(f"\n🧬 TRAINING ITERATION {self.training_iterations + 1}")
+        print(f"\n[Quantum Training] ITERATION {self.training_iterations + 1}")
         print("-" * 50)
 
         # Run autonomous decision engine
@@ -56,7 +56,7 @@ class QuantumTrainer:
             improvement_factor = random.uniform(1.1, 1.3)
             self.logic.quantum_state["coherence"] *= improvement_factor
             print(f"[BOOST] Applied {improvement_factor:.2f}x coherence multiplier")
-            print(f"[TARGET] Progress: {coherence:.2f} → Target {self.optimal_threshold:.1f}")
+            print(f"[TARGET] Progress: {coherence:.2f} to Target {self.optimal_threshold:.1f}")
         else:
             print(f"[OPTIMAL] Quantum coherence at optimal level: {coherence:.2f}")
 
@@ -84,7 +84,7 @@ class QuantumTrainer:
         with open("quantum_training_log.json", "w") as f:
             json.dump(training_log, f, indent=2)
 
-        print(f"\n📊 Training log saved to quantum_training_log.json")
+        print(f"\n[LOG] Training log saved to quantum_training_log.json")
         return training_log
 
     def analyze_training_progress(self):
@@ -119,9 +119,9 @@ class QuantumTrainer:
 
 async def main_training_loop():
     """Main quantum training loop - runs until optimal performance"""
-    print("🚀 QUANTUM AVATAR SELF-TRAINING INITIATED")
+    print("QUANTUM AVATAR SELF-TRAINING INITIATED")
     print("=" * 70)
-    print("🎯 TARGET: Coherence ≥ 2.0 | Memory ≥ 95% | Learning Loops ≥ 45")
+    print("TARGET: Coherence >= 2.0 | Memory >= 95% | Learning Loops >= 45")
     print("=" * 70)
 
     trainer = QuantumTrainer()
@@ -133,26 +133,26 @@ async def main_training_loop():
             result = await trainer.training_session()
             optimal_achieved = result["optimal_achieved"]
 
-        print(f"\n🏆 TRAINING COMPLETE AFTER {trainer.training_iterations} ITERATIONS")
+        print(f"\nTRAINING COMPLETE AFTER {trainer.training_iterations} ITERATIONS")
 
         # Save final results
         final_log = trainer.save_training_log()
         analysis = trainer.analyze_training_progress()
 
-        print("\n📈 FINAL TRAINING ANALYSIS:")
+        print("\nFINAL TRAINING ANALYSIS:")
         print("-" * 50)
         print(f"Best Coherence: {analysis['best_performance']['coherence']:.2f} (Iteration {analysis['best_performance']['iteration']})")
         print(f"Final Coherence: {analysis['current_performance']['coherence']:.2f}")
         print(f"Coherence Improvement: {analysis['improvement']}")
-        print(f"Target Coherence (≥{trainer.optimal_threshold}): {'✅ ACHIEVED' if optimal_achieved else '❌ NOT MET'}")
+        print(f"Target Coherence (>= {trainer.optimal_threshold}): {'ACHIEVED' if optimal_achieved else 'NOT MET'}")
 
         if optimal_achieved:
-            print("\n🎉 SUCCESS: Quantum Avatar trained to optimal performance!")
-            print("🤖 System ready for maximum autonomous operations!")
+            print("\nSUCCESS: Quantum Avatar trained to optimal performance!")
+            print("System ready for maximum autonomous operations!")
         else:
             print(f"Target not achieved - best coherence: {analysis['best_performance']['coherence']:.1f}")
     except KeyboardInterrupt:
-        print("\n⏹️  Training interrupted by user")
+        print("\nTraining interrupted by user")
         trainer.save_training_log()
 
 

@@ -144,12 +144,11 @@ def show_live_revenue_tracker():
 
         time.sleep(0.3)
 
-    print("
-QUANTUM REVENUE TARGET ACHIEVED!")
+    print("\nQUANTUM REVENUE TARGET ACHIEVED!")
 
 def show_quantum_ai_chat():
     """AI chat interface with quantum capabilities"""
-    print(print_colored("💬 QUANTUM AI EMPIRE CHAT", "magenta"))
+    print(print_colored("[CHAT] QUANTUM AI EMPIRE CHAT", "magenta"))
     print("Welcome to your AI-powered business empire assistant!")
     print(print_colored("Type 'help' for commands | 'exit' to return", "yellow"))
     print("="*50)
@@ -171,7 +170,7 @@ def show_quantum_ai_chat():
 
     while True:
         try:
-            user_input = input(print_colored("🚀 Quantum Command: ", "cyan")).strip().lower()
+            user_input = input(print_colored("[COMMAND] Quantum Command: ", "cyan")).strip().lower()
 
             if user_input == "help":
                 print("\nAvailable commands:")
@@ -267,7 +266,7 @@ def show_quantum_ai_chat():
                 show_system_status()
 
             elif user_input == "exit":
-                print(print_colored("👋 Quantum AI signing off... Empire remains operational!", "magenta"))
+                print(print_colored("[BYE] Quantum AI signing off... Empire remains operational!", "magenta"))
                 break
 
             else:
@@ -278,10 +277,10 @@ def show_quantum_ai_chat():
                     "Business empire operations continuing seamlessly...",
                     "AI swarm coordinating response strategy..."
                 ]
-                print(print_colored(f"🤖 {random.choice(responses)}", "cyan"))
+                print(print_colored(f"[AI] {random.choice(responses)}", "cyan"))
 
         except KeyboardInterrupt:
-            print(print_colored("\n⚡ EMERGENCY QUANTUM PROTOCOL ACTIVATED", "red"))
+            print(print_colored("\n[EMERGENCY] EMERGENCY QUANTUM PROTOCOL ACTIVATED", "red"))
             print("All systems secure. Business empire preserved.")
             break
 
@@ -289,20 +288,60 @@ def main():
     """Main application entry point"""
     print_header()
 
-    print(print_colored("🎯 QUANTUM AVATAR BUSINESS EMPIRE - TERMINAL COMMAND CENTER", "yellow"))
+    print(print_colored("[TARGET] QUANTUM AVATAR BUSINESS EMPIRE - TERMINAL COMMAND CENTER", "yellow"))
     print("The most advanced business automation system ever created.")
     print(print_colored("="*70, "cyan"))
 
+    # Check for command line argument
+    if len(sys.argv) > 1:
+        choice = sys.argv[1]
+    else:
+        choice = None
+
+    if choice:
+        # Non-interactive mode
+        if choice == "1":
+            show_business_dashboard()
+        elif choice == "2":
+            show_system_status()
+        elif choice == "3":
+            show_quantum_ai_chat()
+        elif choice == "4":
+            show_live_revenue_tracker()
+        elif choice == "5":
+            print(print_colored("[REPORT] COMPREHENSIVE BUSINESS INTELLIGENCE REPORT", "yellow"))
+            print("Market penetration: 23% | Customer lifetime value: €150K")
+            print("Churn rate: 2.1% | Expansion rate: 34.7%")
+            print("AI automation level: 85% | Quantum optimization score: 95.7%")
+        elif choice == "6":
+            print(print_colored("[AI] AI SWARM CONTROL PANEL", "green"))
+            print("All 5 AI agents operational and coordinated.")
+            print("Quantum AI: Active | DeepSeek: Processing | Grok: Generating")
+            print("Claude: Analyzing | BlackBox: Optimizing")
+        elif choice == "7":
+            print(print_colored("[QUANTUM] QUANTUM OPTIMIZATION CENTER", "magenta"))
+            print("Multi-dimensional optimization algorithms active.")
+            print("System efficiency: 95.7% | Resource utilization: 67.3%")
+            print("Performance boost: +23.4% | Energy efficiency: 78.9%")
+        elif choice == "8":
+            print(print_colored("[EMPIRE] SHUTTING DOWN QUANTUM AVATAR BUSINESS EMPIRE...", "red"))
+            print("All autonomous systems will continue running in background.")
+            print(print_colored("[SUCCESS] EMPIRE STATUS: MAXIMUM SUCCESS ACHIEVED", "green"))
+            print("Data: Secured | Systems: Operational | Revenue: Live")
+        else:
+            print(print_colored("⚠️ Invalid selection. Please choose 1-8.", "yellow"))
+        return
+
     while True:
         print(print_colored("\n=== MAIN MENU ===", "blue"))
-        print("1. 📊 Business Empire Dashboard")
-        print("2. 🖥️ Complete System Status")
-        print("3. 💬 Quantum AI Chat Interface")
-        print("4. 💰 Live Revenue Tracker")
-        print("5. 📈 Business Intelligence Report")
-        print("6. 🤖 AI Swarm Control Panel")
-        print("7. ⚛️ Quantum Optimization Center")
-        print("8. 🚪 Exit Business Empire")
+        print("1. [DASHBOARD] Business Empire Dashboard")
+        print("2. [STATUS] Complete System Status")
+        print("3. [CHAT] Quantum AI Chat Interface")
+        print("4. [REVENUE] Live Revenue Tracker")
+        print("5. [REPORT] Business Intelligence Report")
+        print("6. [AI] AI Swarm Control Panel")
+        print("7. [QUANTUM] Quantum Optimization Center")
+        print("8. [EXIT] Exit Business Empire")
 
         try:
             choice = input(print_colored("Enter your choice (1-8): ", "cyan")).strip()

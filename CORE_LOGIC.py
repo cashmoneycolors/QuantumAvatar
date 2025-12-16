@@ -118,7 +118,7 @@ class QuantumLogic:
 
     async def quantum_self_learning(self):
         """Quantum-enhanced self-learning algorithm"""
-        print("\n🧬 QUANTUM SELF-LEARNING - ACTIVATED")
+        print("\nQUANTUM SELF-LEARNING - ACTIVATED")
 
         # Simulate quantum learning cycles
         coherence_improvement = random.uniform(1.0, 2.0)
@@ -155,7 +155,7 @@ class QuantumLogic:
 
     async def autonomous_decision_engine(self):
         """Main autonomous decision engine"""
-        print("🧠 QUANTUM LOGIC ENGINE - PROCESSING")
+        print("QUANTUM LOGIC ENGINE - PROCESSING")
 
         # Run all logic modules
         market_decisions = await self.market_analysis_logic()

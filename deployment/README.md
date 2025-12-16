@@ -13,11 +13,13 @@ docker-compose -f deployment/docker-compose.yml up --build
 
 1. Heroku CLI installieren
 2. App erstellen:
+
    ```bash
    heroku create quantum-avatar-production
    ```
 
 3. API Keys als Environment Variablen setzen:
+
    ```bash
    heroku config:set PAYPAL_CLIENT_ID=your_client_id
    heroku config:set PAYPAL_CLIENT_SECRET=your_client_secret
@@ -27,6 +29,7 @@ docker-compose -f deployment/docker-compose.yml up --build
    ```
 
 4. Deployen:
+
    ```bash
    git push heroku main
    ```

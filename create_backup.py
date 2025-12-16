@@ -6,6 +6,7 @@ import datetime
 import json
 import os
 import subprocess
+import shutil
 import zipfile
 from pathlib import Path
 
@@ -42,7 +43,14 @@ def _safe_folder_name(path: Path) -> str:
 
 def _run(cmd: list[str], cwd: Path | None = None) -> subprocess.CompletedProcess:
     try:
-        return subprocess.run(cmd, cwd=str(cwd) if cwd else None, capture_output=True, text=True)
+        return subprocess.run(
+            cmd,
+            cwd=str(cwd) if cwd else None,
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+            errors="replace",
+        )
     except FileNotFoundError as exc:
         return subprocess.CompletedProcess(cmd, 127, "", str(exc))
 
@@ -62,12 +70,18 @@ def _zip_tree(
     *,
     exclude_dir_names: set[str],
     exclude_top_level_names: set[str],
+    compression: int,
+    compresslevel: int | None,
 ) -> dict:
     zip_path.parent.mkdir(parents=True, exist_ok=True)
     files_count = 0
     bytes_count = 0
 
-    with zipfile.ZipFile(zip_path, "w", compression=zipfile.ZIP_DEFLATED, allowZip64=True) as zipf:
+    zip_kwargs: dict = {"compression": compression, "allowZip64": True}
+    if compresslevel is not None:
+        zip_kwargs["compresslevel"] = compresslevel
+
+    with zipfile.ZipFile(zip_path, "w", **zip_kwargs) as zipf:
         for root, dirs, files in os.walk(source_dir):
             root_path = Path(root)
             rel_root = root_path.relative_to(source_dir)
@@ -121,7 +135,78 @@ def _export_vscode_extensions(out_dir: Path) -> dict:
     return {"ok": False, "error": "VS Code CLI nicht gefunden (code/insiders nicht im PATH)."}
 
 
-def backup_repo(repo_path: Path, out_root: Path, *, make_zip: bool, make_git: bool) -> dict:
+def _copy_file_if_exists(src: Path, dst: Path) -> dict:
+    try:
+        if not src.exists():
+            return {"ok": False, "src": str(src), "dst": str(dst), "error": "missing"}
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(src, dst)
+        try:
+            size = dst.stat().st_size
+        except OSError:
+            size = None
+        return {"ok": True, "src": str(src), "dst": str(dst), "bytes": size}
+    except Exception as exc:
+        return {"ok": False, "src": str(src), "dst": str(dst), "error": str(exc)}
+
+
+def _export_vscode_user_state(out_dir: Path) -> dict:
+    """Best-effort export of local VS Code/VSCodium user settings.
+
+    Note: These files may contain personal preferences and potentially sensitive tokens.
+    They are copied only into the local backup folder.
+    """
+
+    out_dir.mkdir(parents=True, exist_ok=True)
+    appdata = os.environ.get("APPDATA")
+    if not appdata:
+        return {"ok": False, "error": "APPDATA not set"}
+
+    appdata_path = Path(appdata)
+    products = [
+        ("vscode", appdata_path / "Code" / "User"),
+        ("vscode-insiders", appdata_path / "Code - Insiders" / "User"),
+        ("vscodium", appdata_path / "VSCodium" / "User"),
+    ]
+
+    exports: dict = {"ok": True, "products": {}}
+    for name, user_dir in products:
+        product_out = out_dir / name
+        entries = []
+        entries.append(_copy_file_if_exists(user_dir / "settings.json", product_out / "settings.json"))
+        entries.append(_copy_file_if_exists(user_dir / "keybindings.json", product_out / "keybindings.json"))
+
+        # Snippets (folder)
+        snippets_dir = user_dir / "snippets"
+        snippets_out = product_out / "snippets"
+        snippet_files = []
+        try:
+            if snippets_dir.exists() and snippets_dir.is_dir():
+                snippets_out.mkdir(parents=True, exist_ok=True)
+                for p in snippets_dir.glob("*.json"):
+                    res = _copy_file_if_exists(p, snippets_out / p.name)
+                    snippet_files.append(res)
+        except Exception as exc:
+            snippet_files.append({"ok": False, "error": str(exc)})
+
+        exports["products"][name] = {
+            "user_dir": str(user_dir),
+            "files": entries,
+            "snippets": snippet_files,
+        }
+
+    return exports
+
+
+def backup_repo(
+    repo_path: Path,
+    out_root: Path,
+    *,
+    make_zip: bool,
+    make_git: bool,
+    zip_store: bool,
+    zip_compresslevel: int,
+) -> dict:
     repo_path = repo_path.resolve()
     repo_name = _safe_folder_name(repo_path)
     repo_out = out_root / repo_name
@@ -142,11 +227,15 @@ def backup_repo(repo_path: Path, out_root: Path, *, make_zip: bool, make_git: bo
         exclude_dirs.add(".git")
         zip_path = repo_out / f"{repo_name}_working_tree.zip"
         try:
+            compression = zipfile.ZIP_STORED if zip_store else zipfile.ZIP_DEFLATED
+            compresslevel = None if compression == zipfile.ZIP_STORED else max(0, int(zip_compresslevel))
             result["zip"] = _zip_tree(
                 repo_path,
                 zip_path,
                 exclude_dir_names=exclude_dirs,
                 exclude_top_level_names=exclude_top_level,
+                compression=compression,
+                compresslevel=compresslevel,
             )
             try:
                 result["zip"]["zip_bytes"] = zip_path.stat().st_size
@@ -211,6 +300,8 @@ def create_backup(
     include_all_repos: bool,
     make_zip: bool,
     make_git: bool,
+    zip_store: bool,
+    zip_compresslevel: int,
 ) -> Path:
     ts = _timestamp()
     out_root = output_root / ts
@@ -224,10 +315,24 @@ def create_backup(
     meta_dir.mkdir(parents=True, exist_ok=True)
 
     vscode_info = _export_vscode_extensions(meta_dir)
+    vscode_user_state = _export_vscode_user_state(meta_dir / "vscode_user")
 
     results = []
-    for repo_path in selected_repos:
-        results.append(backup_repo(repo_path, out_root, make_zip=make_zip, make_git=make_git))
+    interrupted = False
+    try:
+        for repo_path in selected_repos:
+            results.append(
+                backup_repo(
+                    repo_path,
+                    out_root,
+                    make_zip=make_zip,
+                    make_git=make_git,
+                    zip_store=zip_store,
+                    zip_compresslevel=zip_compresslevel,
+                )
+            )
+    except KeyboardInterrupt:
+        interrupted = True
 
     # Flat repo list
     repos_txt = out_root / "repos.txt"
@@ -273,8 +378,12 @@ def create_backup(
         "output_root": str(out_root),
         "make_zip": make_zip,
         "make_git": make_git,
+        "zip_store": zip_store,
+        "zip_compresslevel": zip_compresslevel,
+        "interrupted": interrupted,
         "repos": results,
         "vscode": vscode_info,
+        "vscode_user": vscode_user_state,
     }
     (out_root / "BACKUP_MANIFEST.json").write_text(json.dumps(manifest, indent=2), encoding="utf-8")
 
@@ -283,6 +392,8 @@ def create_backup(
         f"Backup erstellt: {out_root}",
         f"Repos: {len(results)}",
         f"ZIP: {'on' if make_zip else 'off'} | Git bundle+patches: {'on' if make_git else 'off'}",
+        f"ZIP store: {'on' if zip_store else 'off'} | ZIP compresslevel: {zip_compresslevel}",
+        f"Interrupted: {'yes' if interrupted else 'no'}",
         f"VS Code Extensions: {'ok' if vscode_info.get('ok') else 'n/a'}",
         "",
     ]
@@ -332,6 +443,17 @@ def _parse_args() -> argparse.Namespace:
         help="Kein ZIP-Working-Tree erstellen",
     )
     parser.add_argument(
+        "--zip-store",
+        action="store_true",
+        help="ZIP ohne Kompression (schneller, aber größer)",
+    )
+    parser.add_argument(
+        "--zip-compresslevel",
+        type=int,
+        default=1,
+        help="Kompressionslevel für ZIP_DEFLATED (0-9, Default: 1). Wird ignoriert bei --zip-store.",
+    )
+    parser.add_argument(
         "--no-git",
         action="store_true",
         help="Keine Git-Bundles/Patches erstellen",
@@ -353,6 +475,8 @@ def main() -> int:
 
     make_zip = not args.no_zip
     make_git = not args.no_git
+    zip_store = bool(args.zip_store)
+    zip_compresslevel = int(args.zip_compresslevel)
 
     out_dir = create_backup(
         output_root=output_root,
@@ -360,7 +484,18 @@ def main() -> int:
         include_all_repos=include_all_repos,
         make_zip=make_zip,
         make_git=make_git,
+        zip_store=zip_store,
+        zip_compresslevel=zip_compresslevel,
     )
+
+    # Persist a small breadcrumb inside the workspace so the last backup location
+    # is still discoverable even if terminal output is not captured.
+    try:
+        breadcrumb_path = Path(__file__).resolve().parent / "backup_runs.log"
+        with breadcrumb_path.open("a", encoding="utf-8") as f:
+            f.write(f"{datetime.datetime.now().isoformat()}\t{out_dir}\n")
+    except Exception:
+        pass
     print(f"Backup erstellt: {out_dir}")
     print(f"Summary: {out_dir / 'BACKUP_SUMMARY.txt'}")
     print(f"Manifest: {out_dir / 'BACKUP_MANIFEST.json'}")
