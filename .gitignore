@@ -26,6 +26,7 @@ wheels/
 venv/
 env/
 ENV/
+.venv/
 
 # IDE
 .vscode/
@@ -42,7 +43,16 @@ desktop.ini
 *.log
 logs/
 
-# Quantum Secrets (Future)
+# Backups (local only, not pushed to GitHub)
+backups/
+data/backups/
+
+# Local databases / generated state
+*.db
+*.sqlite
+*.sqlite3
+
+# Quantum Secrets
 quantum_keys/
 api_secrets/
 .env

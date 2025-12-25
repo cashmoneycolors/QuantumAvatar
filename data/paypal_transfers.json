@@ -14,5 +14,189 @@
     "status": "COMPLETED",
     "transaction_id": "TXN_308590",
     "timestamp": "2025-12-12T02:53:32.733427"
+  },
+  {
+    "amount": 115174,
+    "currency": "EUR",
+    "recipient": "cashmoneycolors@gmail.com",
+    "status": "COMPLETED",
+    "transaction_id": "TXN_213074",
+    "timestamp": "2025-12-14T06:01:24.621864"
+  },
+  {
+    "amount": 72316,
+    "currency": "EUR",
+    "recipient": "cashmoneycolors@gmail.com",
+    "status": "COMPLETED",
+    "transaction_id": "TXN_381856",
+    "timestamp": "2025-12-14T12:51:19.699393"
+  },
+  {
+    "amount": 103548,
+    "currency": "EUR",
+    "recipient": "cashmoneycolors@gmail.com",
+    "status": "COMPLETED",
+    "transaction_id": "TXN_895429",
+    "timestamp": "2025-12-16T03:16:20.272403"
+  },
+  {
+    "amount": 91741,
+    "currency": "EUR",
+    "recipient": "cashmoneycolors@gmail.com",
+    "status": "COMPLETED",
+    "transaction_id": "TXN_494242",
+    "timestamp": "2025-12-16T07:59:12.158770"
+  },
+  {
+    "amount": 74674,
+    "currency": "EUR",
+    "recipient": "cashmoneycolors@gmail.com",
+    "status": "COMPLETED",
+    "transaction_id": "TXN_861062",
+    "timestamp": "2025-12-16T08:25:41.171733"
+  },
+  {
+    "amount": 78307,
+    "currency": "EUR",
+    "recipient": "cashmoneycolors@gmail.com",
+    "status": "COMPLETED",
+    "transaction_id": "TXN_918683",
+    "timestamp": "2025-12-16T08:26:37.478040"
+  },
+  {
+    "amount": 63711,
+    "currency": "EUR",
+    "recipient": "cashmoneycolors@gmail.com",
+    "status": "COMPLETED",
+    "transaction_id": "TXN_371917",
+    "timestamp": "2025-12-16T08:30:43.712085"
+  },
+  {
+    "amount": 92902,
+    "currency": "EUR",
+    "recipient": "cashmoneycolors@gmail.com",
+    "status": "COMPLETED",
+    "transaction_id": "TXN_963928",
+    "timestamp": "2025-12-16T08:31:34.432816"
+  },
+  {
+    "amount": 84149,
+    "currency": "EUR",
+    "recipient": "cashmoneycolors@gmail.com",
+    "status": "COMPLETED",
+    "transaction_id": "TXN_773007",
+    "timestamp": "2025-12-16T08:34:17.805001"
+  },
+  {
+    "amount": 94937,
+    "currency": "EUR",
+    "recipient": "cashmoneycolors@gmail.com",
+    "status": "COMPLETED",
+    "transaction_id": "TXN_665704",
+    "timestamp": "2025-12-16T08:36:25.421633"
+  },
+  {
+    "amount": 109636,
+    "currency": "EUR",
+    "recipient": "cashmoneycolors@gmail.com",
+    "status": "COMPLETED",
+    "transaction_id": "TXN_910631",
+    "timestamp": "2025-12-16T08:38:28.360503"
+  },
+  {
+    "amount": 112417,
+    "currency": "EUR",
+    "recipient": "cashmoneycolors@gmail.com",
+    "status": "COMPLETED",
+    "transaction_id": "TXN_718930",
+    "timestamp": "2025-12-16T08:47:38.559489"
+  },
+  {
+    "amount": 76977,
+    "currency": "EUR",
+    "recipient": "cashmoneycolors@gmail.com",
+    "status": "COMPLETED",
+    "transaction_id": "TXN_808500",
+    "timestamp": "2025-12-16T21:22:25.383069"
+  },
+  {
+    "amount": 47611,
+    "currency": "EUR",
+    "recipient": "cashmoneycolors@gmail.com",
+    "status": "COMPLETED",
+    "transaction_id": "TXN_161580",
+    "timestamp": "2025-12-16T21:22:41.346840"
+  },
+  {
+    "amount": 99341,
+    "currency": "EUR",
+    "recipient": "cashmoneycolors@gmail.com",
+    "status": "COMPLETED",
+    "transaction_id": "TXN_849065",
+    "timestamp": "2025-12-16T21:28:32.428754"
+  },
+  {
+    "amount": 90419,
+    "currency": "EUR",
+    "recipient": "cashmoneycolors@gmail.com",
+    "status": "COMPLETED",
+    "transaction_id": "TXN_808849",
+    "timestamp": "2025-12-16T21:28:44.113637"
+  },
+  {
+    "amount": 92525,
+    "currency": "EUR",
+    "recipient": "cashmoneycolors@gmail.com",
+    "status": "COMPLETED",
+    "transaction_id": "TXN_265763",
+    "timestamp": "2025-12-16T21:28:57.558858"
+  },
+  {
+    "amount": 67152,
+    "currency": "EUR",
+    "recipient": "cashmoneycolors@gmail.com",
+    "status": "COMPLETED",
+    "transaction_id": "TXN_266659",
+    "timestamp": "2025-12-16T23:40:38.957442"
+  },
+  {
+    "amount": 116564,
+    "currency": "EUR",
+    "recipient": "cashmoneycolors@gmail.com",
+    "status": "COMPLETED",
+    "transaction_id": "TXN_482774",
+    "timestamp": "2025-12-17T00:20:54.251775"
+  },
+  {
+    "amount": 83098,
+    "currency": "EUR",
+    "recipient": "cashmoneycolors@gmail.com",
+    "status": "COMPLETED",
+    "transaction_id": "TXN_570920",
+    "timestamp": "2025-12-17T00:24:24.971487"
+  },
+  {
+    "amount": 89762,
+    "currency": "EUR",
+    "recipient": "cashmoneycolors@gmail.com",
+    "status": "COMPLETED",
+    "transaction_id": "TXN_672350",
+    "timestamp": "2025-12-17T00:24:51.005842"
+  },
+  {
+    "amount": 69255,
+    "currency": "EUR",
+    "recipient": "cashmoneycolors@gmail.com",
+    "status": "COMPLETED",
+    "transaction_id": "TXN_903696",
+    "timestamp": "2025-12-17T00:27:55.164141"
+  },
+  {
+    "amount": 112471,
+    "currency": "EUR",
+    "recipient": "cashmoneycolors@gmail.com",
+    "status": "COMPLETED",
+    "transaction_id": "TXN_358002",
+    "timestamp": "2025-12-17T00:27:55.465270"
   }
 ]

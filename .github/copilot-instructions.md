@@ -1,33 +1,40 @@
-# Quantum Avatar - Copilot Leitfaden
+# QuantumAvatar – Copilot-Instructions
 
-## Architektur-Ueberblick
-- `quantum_avatar_activation.py` meldet KI-, Design- und Payment-Services parallel per `asyncio.gather()` an und setzt damit den erzählerischen Systemstatus.
-- `CORE_LOGIC.py` enthaelt `QuantumLogic` (Marktanalyse, Self-Learning, Revenue-Optimierung) sowie `PayPalLogic`; `main()` schreibt jede Ausfuehrung via `persist_results()` nach `data/quantum_results.json` und ueber `record_transfer()` nach `data/paypal_transfers.json`.
-- `BACKEND_API.py` (FastAPI) liest diese Snapshots in allen `/api/v1/*`-Routen, um Umsatz, Stream-Mix, Systemstatus und PayPal-Historie auszugeben; statische Fallbacks laufen weiter, falls Dateien fehlen.
-- `DASHBOARD.py` spiegelt die API in Streamlit (identische KPIs, Streams, Autonomie-Text). Achte darauf, Labels gleichzeitig in API und Dashboard zu pflegen.
-- Story-Skripte wie `LIVE_DEPLOYMENT.py`, `PRODUCTION_START.py` oder `AUTONOMOUS_MONEY_MACHINE.py` nutzen stets: Klassencontainer, async Worker, Emoji-Logs, `if __name__ == "__main__"`.
+## Big Picture (2 Sub-Systeme)
+- **Quantum Avatar V5 Demo-Stack**: `CORE_LOGIC.py` erzeugt Snapshots in `data/` → `BACKEND_API.py` (FastAPI) und `DASHBOARD.py` (Streamlit) lesen diese Daten.
+- **CashMoneyColors Desktop-App**: `CashMoneyColors_App/main.py` ist eine Tkinter-App mit SQLite-DB (`data/nexus.db`), AI-Agent-Orchestrierung und optionalen Real-Integrationen (z. B. PayPal via `requests`).
 
-## Daten- und Kontrollfluss
-- Jede CLI-Session erzeugt neue Zufallsmetriken und ueberschreibt die JSON-Snapshots; ausserhalb von `data/` wird nichts persistiert.
-- Wenn du das Schema von `persist_results()` anfasst, passe `load_quantum_snapshot()` und den Streamlit-Reader direkt mit an, damit alle Pfade weiter stimmen.
-- `PayPalLogic.auto_transfer_logic()` verarbeitet `total_profit + total_revenue_increase`, fuegt erfolgreiche Transfers der Historie hinzu, und `/api/v1/paypal/status` liefert nur den juengsten Eintrag + Business-Mail.
-- `system_metrics` in `BACKEND_API.py` ist der einzige globale Mutable State (uptime, customers); dient als Overlay, wenn kein Snapshot vorhanden ist.
+## Datenfluss (Demo-Stack)
+- `CORE_LOGIC.py`:
+	- `QuantumLogic.autonomous_decision_engine()` berechnet Zufalls-KPIs und schreibt via `persist_results()` nach `data/quantum_results.json`.
+	- `PayPalLogic.auto_transfer_logic(total_profit + total_revenue_increase)` erzeugt Events, `record_transfer()` hängt sie an `data/paypal_transfers.json` an.
+- `BACKEND_API.py`:
+	- liest Snapshots via `load_quantum_snapshot()` / `load_paypal_transfers()`; falls Dateien fehlen/defekt sind, gibt es **statische/in-memory** Fallbacks.
+	- `system_metrics` ist der einzige globale Mutable-State (Overlay, wenn kein Snapshot da ist).
+- `DASHBOARD.py` zeigt aktuell **statische** KPIs/Streams (kein echter API-Call). Wenn du Stream-Namen/Labels änderst, halte API und Dashboard konsistent.
 
-## Entwickler-Workflows
-- Umgebung: `python -m venv .venv && .venv\Scripts\activate && pip install -r requirements.txt` (Python 3.8+). Die Requirements decken FastAPI, Streamlit, uvicorn, Auth- und Async-Abhaengigkeiten bereits ab.
-- Kern-Engine: `python CORE_LOGIC.py` generiert frische KPIs und PayPal-Events und aktualisiert die JSON-Basis fuer API/Dashboard.
-- API: `uvicorn BACKEND_API:app --reload --port 8000` liefert `/docs`, `/api/v1/revenue/today`, `/api/v1/system/status` usw.; laufe zuerst die Engine, sonst greifen nur Fallback-Daten.
-- Dashboard: `streamlit run DASHBOARD.py` zeigt KPIs lokal; der Refresh-Button ist rein kosmetisch, deshalb Skript neu starten oder Engine erneut ausfuehren.
-- Story-Runs (z. B. `python LIVE_DEPLOYMENT.py`) sind reine Demos und beschreiben nichts in die Snapshots, solange du sie nicht bewusst an `persist_results()` anschliesst.
+## Entwickler-Workflows (Windows)
+- Setup:
+	- Demo: `python -m venv .venv` → `\.venv\Scripts\activate` → `pip install -r requirements.txt`
+	- Desktop-App (breiter): `pip install -r CashMoneyColors_App/requirements.txt`
+- Demo-Engine ausführen (produziert Snapshots): `python CORE_LOGIC.py`
+- API starten: `uvicorn BACKEND_API:app --reload --port 8000` (Docs unter `/docs`)
+- Dashboard starten: `streamlit run DASHBOARD.py`
+- Desktop-App starten: `python CashMoneyColors_App/main.py`
 
-## Patterns & Konventionen
-- Async-first: selbst Demo-Skripte kombinieren Tasks via `asyncio.gather(...)` und bremsen mit kurzen `asyncio.sleep()`-Delays fuer lesbare Logs.
-- Log-Stil: Grossbuchstaben + Emojis; halte neuen Output konsistent, damit Transkripte homogen wirken.
-- Duplizierte Konstanten (`cashmoneycolors@gmail.com`, Autonomie-Level, KPI-Zahlen) unbedingt mit `rg`/`grep` quer durchs Repo aktualisieren.
-- Abhaengigkeiten schlank halten; neue Libraries nur mitsamt Doku im README und fixer Version in `requirements.txt` aufnehmen.
+## Konfiguration & Secrets (CashMoneyColors_App)
+- Keys kommen aus Env-Vars in `CashMoneyColors_App/core/config.py`:
+	- `GROK_API_KEY`, `DEEPSEEK_API_KEY`, `BLACKBOX_API_KEY`, `ANTHROPIC_API_KEY`
+	- `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`
+	- `PAYPAL_CLIENT_ID`, `PAYPAL_CLIENT_SECRET`
+- Keine Secrets hardcoden; orientiere dich an `.env.example` / `CashMoneyColors_App/core/config.py:create_config_structure()`.
 
-## Erweiterungs-Hinweise
-- API: Weitere Endpunkte direkt in `BACKEND_API.py`, immer unter `/api/v1/...`, bevorzugt mit Pydantic-Modellen und optionalem Snapshot-Zugriff.
-- Dashboard: Verwende weiter die Streamlit-Spalten/Metriken aus `DASHBOARD.py`; teure Berechnungen ausserhalb des Render-Flows vorberechnen.
-- Neue Story-Skripte strikt nach vorhandenem Template (Klasse + async Tasks + `run_*`-Coroutine), damit sie in die Marketing-Narrative passen.
-- Falls echte Persistenz noetig wird, ersetze die JSON-Helfer in `CORE_LOGIC.py` und lies in API/Dashboard aus derselben Quelle, um Split-Brain zu vermeiden.
+## Repo-spezifische Patterns
+- **Async-first** bei QuantumAvatar-Skripten: `asyncio.gather(...)` + kurze Sleeps, Console-Logs oft in GROSSBUCHSTABEN/Emoji-Stil.
+- **Tolerante Bootstraps** in der Desktop-App: `safe_execute()` aus `CashMoneyColors_App/utils/helpers.py` statt harte Abbrueche.
+- **Optionale Dependencies**: `CashMoneyColors_App/core/chatbot.py` faellt bei fehlendem `openai`/`anthropic` auf Mocks zurueck (ImportError-Handling).
+- **Persistenz-Orte**: Demo-Snapshots unter `data/`; Desktop-App-DB/Artefakte ebenfalls unter `data/`/`logs/`. Wenn du Schema/Pfade aenderst, aktualisiere alle Leser.
+
+## Tests / Smoke-Checks
+- Unit-Tests (stdlib): `python -m unittest tests/test_core_logic.py`
+- Optional (wenn installiert): `python -m pytest tests/test_core_logic.py -v`
