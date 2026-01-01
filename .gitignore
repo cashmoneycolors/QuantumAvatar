@@ -63,3 +63,15 @@ temp/
 tmp/
 *.tmp
 *.bak
+
+# Additional local ignores (merged from bootstrap branch)
+MANIFEST
+.env/
+*.code-workspace
+.env.local
+env.ini
+config.ini
+secrets.json
+Desktop.ini
+*.zip
+*.tar.gz
